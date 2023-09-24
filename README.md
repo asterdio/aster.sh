@@ -25,7 +25,10 @@ For aster.sh to run,
 ```
 > ./aster.sh 
 
-aster.sh - A bash wrapper around tsh for its easier installation of tsh command line and the first-time configuration.
+aster.sh - A bash wrapper around tsh for its easier tsh functions.
+
+Version: 1.0.0
+
 Please provide the teleport proxy domain below
 teleport.example.com
 Choose from [1-4] to do specific functions from cloudflare
@@ -62,7 +65,10 @@ Proxy: teleport.example.com:443
 ```
 
 > ./aster.sh 
-aster.sh - A bash wrapper around tsh for its easier installation of tsh command line and the first-time configuration.
+aster.sh - A bash wrapper around tsh for its easier tsh functions.
+
+Version: 1.0.0
+
 Please provide the teleport proxy domain below
 teleport.example.com
 Choose from [1-4] to do specific functions from cloudflare
@@ -88,7 +94,10 @@ If browser window does not open automatically, open it by clicking on the link:
 ### MongoDB connection workflow
 ```
 > ./aster.sh 
-aster.sh - A bash wrapper around tsh for its easier installation of tsh command line and the first-time configuration.
+aster.sh - A bash wrapper around tsh for its easier tsh functions.
+
+Version: 1.0.0
+
 Please provide the teleport proxy domain below
 teleport.example.com
 Choose from [1-4] to do specific functions from cloudflare

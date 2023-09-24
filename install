@@ -1,6 +1,6 @@
 #!/bin/bash
 sudo chmod 755 aster.sh
-sudo mv aster.sh /usr/local/bin/
+sudo cp aster.sh /usr/local/bin/
 echo "
 The installation is successful. 
 You can now use aster.sh from anywhere on the system as your wish.
