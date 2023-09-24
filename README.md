@@ -57,7 +57,7 @@ Proxy: teleport.example.com:443
 
 ```
 
-###Tsh Github login
+### tsh Github login
 
 ```
 
