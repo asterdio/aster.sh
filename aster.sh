@@ -23,6 +23,14 @@ Choose from [1-4] to do specific functions from tsh.
 
 read tsh_option
 
+tsh_installed() {
+    tsh_installed_version=$(tsh version)
+    echo "
+The tsh has been installed. 
+The output version is
+$tsh_installed_version
+    "
+}
 if [ $tsh_option -eq 1 ]; then
     echo "Updating system..."
     sudo apt-get update -y > /dev/null
@@ -41,32 +49,55 @@ if [ $tsh_option -eq 1 ]; then
     #extracing the packages
     tar -xzf teleport-v$tsh_version-linux-amd64-bin.tar.gz
     sudo sh teleport/install
-    tsh_installed_version=$(tsh version)
-    printf "The tsh has been installed. The output version is\n$tsh_installed_version"
+    rm -rf teleport-v$tsh_version-linux-amd64-bin.tar.gz teleport
+    tsh_installed
 elif [ $tsh_option -eq 2 ]; then
     echo "Checking if the tsh is installed"
-    tsh_installed_version=$(tsh version)
-    printf "The tsh has been installed. The output version is\n$tsh_installed_version\n"
-    printf "Please provide your github username:\n"
+    tsh_installed
+    echo "
+Please provide your github username:
+        "
     read github_username
-    printf "Please provude the connector name:\n"
+    echo "
+Please provide the connector name:
+    "
     read connector_name
     tsh login --user=$github_username --proxy=$teleport_proxy_url --auth=$connector_name
 elif [ $tsh_option -eq 3 ]; then
     echo "Checking if the tsh is installed"
-    tsh_installed_version=$(tsh version)
-    printf "The tsh has been installed. The output version is\n$tsh_installed_version\n"
-    printf "Printing the available hosts for connetion from tsh\n"
+    tsh_installed
+    echo "
+Printing the available hosts for connetion from tsh
+    "
     node_list=$(tsh ls)
-    printf "$node_list\n\n"
-    printf "Please provide the host from which you want to connect the MongoDB to. Please provide the complete label like:\nhostname=Example-UAT,azure/Example=UAT\n"
+    echo "
+        $node_list
+        
+        "
+    echo "
+Please provide the host from which you want to connect the MongoDB to. 
+Please provide the complete label like:
+hostname=Example-UAT,azure/Example=UAT
+    "
     read node_labels
-    printf "Also please provide the server username to use.\n"
+    echo "
+Also please provide the server username to use.
+        "
     read server_username
-    printf "Are there any specific ports you want to open your connection in your local system. It uses 27017 on the remote system for MongoDB. This is helpful when you are connecting to different databases at the same time\n"
+    echo "
+Are there any specific ports you want to open your connection in your local system. 
+It uses 27017 on the remote system for MongoDB. 
+This is helpful when you are connecting to different databases at the same time
+        "
     read mongodb_port
-    printf "Here's the mongodb url to connect to the server.\nThe connected DB is for $node_labels.\nYou can connect it using:\nmongodb://username:password@localhost:$mongodb_port\nPress Ctrl+c to cancel the connection\n"
+    echo "
+Here's the mongodb url to connect to the server.
+The connected DB is for $node_labels.
+You can connect it using:
+mongodb://username:password@localhost:$mongodb_port
+Press Ctrl+c to cancel the connection
+        "
     tsh ssh -L $mongodb_port:localhost:27017 -N $server_username@$node_labels 
 else
-    printf "Thank you for using aster.sh. Hope you have a bug-free day"
+    echo "Thank you for using aster.sh. Hope you have a bug-free day"
 fi

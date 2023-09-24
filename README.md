@@ -38,8 +38,6 @@ Choose from [1-4] to do specific functions from cloudflare
 4.Exit
 1
 Updating system...
-W: https://deb.nodesource.com/node_16.x/dists/jammy/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
-W: https://repo.mongodb.org/apt/ubuntu/dists/focal/mongodb-org/6.0/Release.gpg: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
 Making sure you have the pre-requisites installed
 Your proxy server has 13.3.8 installed. So installing the same version on the system
 Starting Teleport installation...
